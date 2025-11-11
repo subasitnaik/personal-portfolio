@@ -1,0 +1,8 @@
+{
+  "name": "personal-portfolio",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/create-env.js"
+  }
+}
+
