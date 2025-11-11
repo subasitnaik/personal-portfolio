@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Subasit's Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BzV8bWjz1hwB+7PR9GY2vP61pIh1mJXwec+oapgHtvPp2+b6Y96Y2b1x4rZqkL/4g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page">
+  <header class="nav" aria-label="Primary">
+    <nav class="nav__glass">
+      <a class="nav__brand" href="#home">SUBASIT.COM</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <div class="nav__links" id="primary-navigation">
+        <a class="nav__link" href="#home">Home</a>
+        <a class="nav__link" href="#skills">Skills</a>
+        <a class="nav__link" href="#projects">Projects</a>
+        <a class="nav__link" href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero__nebula" aria-hidden="true">
+        <div class="hero__starfield hero__starfield--far"></div>
+        <div class="hero__starfield hero__starfield--mid"></div>
+        <div class="hero__starfield hero__starfield--near"></div>
+        <div class="hero__planet" data-draggable></div>
+      </div>
+      <div class="hero__badge">Subasit Naik · Silly Fox Studio</div>
+      <h1 class="hero__title">I am a Full Stack Developer and a Designer</h1>
+      <p class="hero__subtitle">
+        From concept to production-ready apps, I craft reliable systems with modern tooling.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#contact">Start a project</a>
+      </div>
+      <img class="hero__satellite" data-draggable src="assets/spaceship.png" alt="" aria-hidden="true">
+    </section>
+
+    <section id="skills" class="skills">
+      <div class="skills__cards">
+        <header class="skills__cards-header">
+          <div>
+            <h2>Core Capabilities</h2>
+            <p>Strategy, design, and engineering approaches that make every engagement successful.</p>
+          </div>
+          <div class="skills__cards-controls" role="group" aria-label="Scroll skill cards">
+            <button class="skills__cards-btn skills__cards-btn--prev" type="button" aria-label="Scroll left">
+              <span>&larr;</span>
+            </button>
+            <button class="skills__cards-btn skills__cards-btn--next" type="button" aria-label="Scroll right">
+              <span>&rarr;</span>
+            </button>
+          </div>
+        </header>
+        <div class="skills__cards-track" tabindex="0">
+          <article class="skills__card" data-draggable>
+            <h3>Modern Design</h3>
+            <p>I create modern and responsive designs that are easy to use and navigate. Every project I build focuses on smooth colors, neat spacing, and a clean layout.</p>
+            <ul>
+              <li>Simple, Clutter free visuals</li>
+              <li>Consistent style across pages</li>
+              <li>Design that works for everyone</li>
+            </ul>
+          </article>
+          <article class="skills__card" data-draggable>
+            <h3>Custom Code</h3>
+            <p>I don't copy paste templates. I code everything from scratch to ensure the best possible performance and user experience.</p>
+            <ul>
+              <li>Clean and Modular Code</li>
+              <li>Re-usable Components</li>
+              <li>Long-term Stability</li>
+            </ul>
+          </article>
+          <article class="skills__card" data-draggable>
+            <h3>Adaptive Design</h3>
+            <p>I make sure the website i build looks and works greate on all types of devices whether it's a desktop, tablet, or mobile.</p>
+            <ul>
+              <li>Mobile-First Approach</li>
+              <li>Flexible Grid System</li>
+              <li>Cross-Browser Compatibility</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+      <header class="skills__marquee-header">
+        <div>
+          <h2>Tech Stack</h2>
+          <p>Platforms and tools that power every build.</p>
+        </div>
+      </header>
+      <div class="skills__marquee" aria-label="Technology stack">
+        <div class="skills__gradient skills__gradient--left" aria-hidden="true"></div>
+        <div class="skills__gradient skills__gradient--right" aria-hidden="true"></div>
+        <div class="skills__track">
+          <span class="skills__logo">
+            <img src="assets/html1.png" alt="HTML logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/css.png" alt="CSS logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/js.png" alt="JavaScript logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/react.png" alt="React logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/nodejs.png" alt="Node.js logo">
+          </span>
+          <span class="skills__logo skills__logo--express">Express</span>
+          <span class="skills__logo">
+            <img src="assets/mongo.png" alt="MongoDB logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/firebase.png" alt="Firebase logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/supabase.png" alt="Supabase logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/github.png" alt="GitHub logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/figma.png" alt="Figma logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/html1.png" alt="HTML logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/css.png" alt="CSS logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/js.png" alt="JavaScript logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/react.png" alt="React logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/nodejs.png" alt="Node.js logo">
+          </span>
+          <span class="skills__logo skills__logo--express">Express</span>
+          <span class="skills__logo">
+            <img src="assets/mongo.png" alt="MongoDB logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/firebase.png" alt="Firebase logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/supabase.png" alt="Supabase logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/github.png" alt="GitHub logo">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/figma.png" alt="Figma logo">
+          </span>
+        </div>
+        <div class="skills__track" aria-hidden="true">
+          <span class="skills__logo">
+            <img src="assets/html1.png" alt="">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/css.png" alt="">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/js.png" alt="">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/react.png" alt="">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/nodejs.png" alt="">
+          </span>
+          <span class="skills__logo skills__logo--express">Express</span>
+          <span class="skills__logo">
+            <img src="assets/mongo.png" alt="">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/firebase.png" alt="">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/supabase.png" alt="">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/github.png" alt="">
+          </span>
+          <span class="skills__logo">
+            <img src="assets/figma.png" alt="">
+          </span>
+        </div>
+      </div>
+    </section>
+    <section id="projects" class="projects">
+      <div class="projects__header">
+        <div>
+          <h2>Selected Projects</h2>
+          <p>High-impact engagements that blend design craft with production-grade engineering.</p>
+        </div>
+        <a class="projects__cta" href="projects.html">See all projects</a>
+      </div>
+      <div class="projects__grid" data-projects-featured>
+        <div class="projects__empty">Loading projects…</div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <div class="contact__wrapper">
+        <header class="contact__intro">
+          <h2>Contact Me</h2>
+        </header>
+        <form class="contact__form" action="https://formsubmit.co/devsubasit@gmail.com" method="POST">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <div class="contact__row">
+            <label class="contact__field">
+              <span>Your name</span>
+              <input type="text" name="name" autocomplete="name" placeholder="John Doe" required>
+            </label>
+            <label class="contact__field">
+              <span>Email address</span>
+              <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+            </label>
+          </div>
+          <label class="contact__field">
+            <span>Project subject</span>
+            <input type="text" name="subject" placeholder="eCommerce website" required>
+          </label>
+          <label class="contact__field">
+            <span>Project details</span>
+            <textarea name="message" rows="5" placeholder="Tell me about timelines, scope, integrations, or goals whatever helps me dive in." required></textarea>
+          </label>
+          <button class="contact__submit" type="submit">Send message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© Subasit 2025. Crafted with care.</span>
+    <div class="footer__socials" aria-label="Social links">
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">Youtube</a>
+    </div>
+  </footer>
+  <script>
+    (() => {
+      const nav = document.querySelector(".nav");
+      if (!nav) return;
+
+      let lastScrollY = window.pageYOffset;
+      let ticking = false;
+
+      const update = () => {
+        const currentY = window.pageYOffset;
+        const delta = currentY - lastScrollY;
+
+        if (nav.dataset.suppressReveal === "true") {
+          lastScrollY = currentY;
+          ticking = false;
+          return;
+        }
+
+        if (nav.classList.contains("nav--menu-open")) {
+          lastScrollY = currentY;
+          ticking = false;
+          return;
+        }
+
+        if (currentY <= 80) {
+          nav.classList.remove("nav--hidden");
+        } else if (delta > 8) {
+          nav.classList.add("nav--hidden");
+        } else if (delta < -8) {
+          nav.classList.remove("nav--hidden");
+        }
+
+        lastScrollY = currentY;
+        ticking = false;
+      };
+
+      window.addEventListener("scroll", () => {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      });
+
+      const navGlass = document.querySelector(".nav__glass");
+      if (!navGlass) return;
+
+      const toggleButton = navGlass.querySelector(".nav__toggle");
+      const navLinksContainer = navGlass.querySelector(".nav__links");
+      const navLinks = navLinksContainer ? Array.from(navLinksContainer.querySelectorAll("a")) : [];
+
+      const closeMenu = () => {
+        nav.classList.remove("nav--menu-open");
+        toggleButton?.setAttribute("aria-expanded", "false");
+        navGlass.style.setProperty("--halo-opacity", "0");
+      };
+
+      const openMenu = () => {
+        nav.classList.add("nav--menu-open");
+        toggleButton?.setAttribute("aria-expanded", "true");
+        navGlass.style.setProperty("--halo-opacity", "0");
+      };
+
+      toggleButton?.addEventListener("click", () => {
+        if (nav.classList.contains("nav--menu-open")) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 1024) {
+            closeMenu();
+          }
+
+          const isHero = link.getAttribute("href") === "#home";
+
+          if (isHero) {
+            nav.classList.remove("nav--hidden");
+            delete nav.dataset.suppressReveal;
+            lastScrollY = window.pageYOffset;
+            return;
+          }
+
+          nav.classList.add("nav--hidden");
+          nav.dataset.suppressReveal = "true";
+
+          window.setTimeout(() => {
+            delete nav.dataset.suppressReveal;
+          }, 700);
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 1024) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        if (window.innerWidth > 1024) return;
+        if (!nav.contains(event.target)) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeMenu();
+        }
+      });
+
+      let haloX = 50;
+      let haloY = 50;
+      let targetX = 50;
+      let targetY = 50;
+      let animationFrameId = null;
+      const smoothing = 0.80;
+
+      const animateHalo = () => {
+        haloX += (targetX - haloX) * smoothing;
+        haloY += (targetY - haloY) * smoothing;
+
+        navGlass.style.setProperty("--halo-x", `${haloX}%`);
+        navGlass.style.setProperty("--halo-y", `${haloY}%`);
+
+        if (Math.abs(targetX - haloX) > 0.05 || Math.abs(targetY - haloY) > 0.05) {
+          animationFrameId = requestAnimationFrame(animateHalo);
+        } else {
+          haloX = targetX;
+          haloY = targetY;
+          navGlass.style.setProperty("--halo-x", `${haloX}%`);
+          navGlass.style.setProperty("--halo-y", `${haloY}%`);
+          animationFrameId = null;
+        }
+      };
+
+      const ensureAnimation = () => {
+        if (animationFrameId === null) {
+          animationFrameId = requestAnimationFrame(animateHalo);
+        }
+      };
+
+      const updateTarget = (event) => {
+        if (window.innerWidth <= 1024 || nav.classList.contains("nav--menu-open")) return;
+        const rect = navGlass.getBoundingClientRect();
+        const point = event.touches?.length ? event.touches[0] : event;
+        const x = ((point.clientX - rect.left) / rect.width) * 100;
+        targetX = Math.max(0, Math.min(100, x));
+        targetY = 50;
+        ensureAnimation();
+      };
+
+      const showHalo = (event) => {
+        if (window.innerWidth <= 1024 || nav.classList.contains("nav--menu-open")) return;
+        navGlass.style.setProperty("--halo-opacity", "1");
+        updateTarget(event);
+      };
+
+      const hideHalo = () => {
+        navGlass.style.setProperty("--halo-opacity", "0");
+        targetX = 50;
+        targetY = 50;
+        ensureAnimation();
+      };
+
+      navGlass.addEventListener("pointerenter", showHalo);
+      navGlass.addEventListener("pointermove", updateTarget);
+      navGlass.addEventListener("pointerleave", hideHalo);
+
+      navGlass.addEventListener("touchstart", showHalo, { passive: true });
+      navGlass.addEventListener("touchmove", updateTarget, { passive: true });
+      navGlass.addEventListener("touchend", hideHalo);
+      navGlass.addEventListener("touchcancel", hideHalo);
+    })();
+
+    (() => {
+      const track = document.querySelector(".skills__cards-track");
+      if (!track) return;
+
+      const btnPrev = document.querySelector(".skills__cards-btn--prev");
+      const btnNext = document.querySelector(".skills__cards-btn--next");
+      const controlsWrapper = document.querySelector(".skills__cards-controls");
+
+      const getScrollAmount = () => {
+        const firstCard = track.querySelector(".skills__card");
+        if (!firstCard) return 0;
+        const { width } = firstCard.getBoundingClientRect();
+        const gap = parseFloat(getComputedStyle(track).gap || "16");
+        return width + gap;
+      };
+
+      const scrollByAmount = (direction) => {
+        track.scrollBy({ left: getScrollAmount() * direction, behavior: "smooth" });
+      };
+
+      const updateControls = () => {
+        const cards = track.querySelectorAll(".skills__card");
+        const totalCards = cards.length;
+        const isDesktop = window.innerWidth >= 1024;
+
+        const scrollWidth = track.scrollWidth;
+        const clientWidth = track.clientWidth;
+        const scrollLeft = track.scrollLeft;
+        const tolerance = 1;
+        const hasOverflow = scrollWidth - clientWidth > tolerance;
+        const atStart = scrollLeft <= tolerance;
+        const atEnd = scrollLeft + clientWidth >= scrollWidth - tolerance;
+
+        const shouldShowDesktop = isDesktop && totalCards > 4 && hasOverflow;
+        const shouldShowMobile = !isDesktop && hasOverflow;
+        const shouldShow = shouldShowDesktop || shouldShowMobile;
+
+        if (controlsWrapper) {
+          controlsWrapper.classList.toggle("is-hidden", !shouldShow);
+        }
+
+        btnPrev?.classList.toggle("is-disabled", atStart || !shouldShow);
+        btnNext?.classList.toggle("is-disabled", atEnd || !shouldShow);
+      };
+
+      updateControls();
+      window.addEventListener("resize", updateControls);
+      track.addEventListener("scroll", updateControls, { passive: true });
+      new ResizeObserver(updateControls).observe(track);
+
+      btnPrev?.addEventListener("click", () => scrollByAmount(-1));
+      btnNext?.addEventListener("click", () => scrollByAmount(1));
+    })();
+
+    window.initializeProjectGalleries = () => {
+      window.__projectGalleryCleanup?.();
+
+      const thumbs = Array.from(document.querySelectorAll(".project-card__thumb"));
+      if (!thumbs.length) return;
+
+      const galleries = thumbs
+        .map((thumb) => {
+          const slides = Array.from(thumb.querySelectorAll("img"));
+          if (slides.length === 0) return null;
+          slides.forEach((img, index) => {
+            img.classList.toggle("is-active", index === 0);
+          });
+          return {
+            thumb,
+            slides,
+            index: 0,
+            interval: parseInt(thumb.dataset.galleryInterval || "4500", 10),
+            timer: null,
+            playing: false,
+          };
+        })
+        .filter(Boolean);
+
+      const showNext = (gallery) => {
+        gallery.slides[gallery.index].classList.remove("is-active");
+        gallery.index = (gallery.index + 1) % gallery.slides.length;
+        gallery.slides[gallery.index].classList.add("is-active");
+      };
+
+      const start = (gallery) => {
+        if (gallery.playing || gallery.slides.length < 2) return;
+        gallery.playing = true;
+        gallery.timer = window.setInterval(() => showNext(gallery), gallery.interval);
+      };
+
+      const stop = (gallery) => {
+        if (gallery.timer) {
+          window.clearInterval(gallery.timer);
+          gallery.timer = null;
+        }
+        gallery.playing = false;
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const gallery = galleries.find((g) => g.thumb === entry.target);
+            if (!gallery) return;
+            if (entry.isIntersecting) {
+              start(gallery);
+            } else {
+              stop(gallery);
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+
+      galleries.forEach((gallery) => observer.observe(gallery.thumb));
+
+      const cleanup = () => {
+        galleries.forEach((gallery) => {
+          if (gallery.playing) {
+            window.clearInterval(gallery.timer);
+            gallery.timer = null;
+          }
+        });
+        observer.disconnect();
+      };
+
+      window.__projectGalleryCleanup = cleanup;
+
+      window.addEventListener("beforeunload", cleanup, { once: true });
+    };
+
+    window.initializeProjectGalleries();
+    window.addEventListener("projects:rendered", () => window.initializeProjectGalleries());
+  </script>
+  <script src="scripts/env.js"></script>
+  <script type="module" src="scripts/loadProjects.js"></script>
+</body>
+</html>
+

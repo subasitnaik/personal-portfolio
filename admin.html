@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Admin · Subasit Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page admin-page">
+  <main class="admin">
+    <section class="admin__card" data-admin-auth>
+      <header class="admin__header">
+        <h1>Admin Login</h1>
+        <p>Authenticate to manage portfolio projects.</p>
+      </header>
+      <form class="admin__form" id="admin-login-form">
+        <label class="admin__field">
+          <span>Email</span>
+          <input type="email" name="email" autocomplete="email" placeholder="you@example.com" required>
+        </label>
+        <label class="admin__field">
+          <span>Password</span>
+          <input type="password" name="password" autocomplete="current-password" placeholder="••••••••" required>
+        </label>
+        <button class="admin__button" type="submit">Sign in</button>
+        <p class="admin__error" data-admin-error hidden></p>
+      </form>
+    </section>
+
+    <section class="admin__dashboard" data-admin-dashboard hidden>
+      <header class="admin__topbar">
+        <div>
+          <h1>Projects Dashboard</h1>
+          <p>Manage featured work, galleries, and metadata.</p>
+        </div>
+        <div class="admin__actions">
+          <button class="admin__button admin__button--ghost" data-admin-refresh>Refresh</button>
+          <button class="admin__button admin__button--danger" data-admin-signout>Sign out</button>
+        </div>
+      </header>
+
+      <div class="admin__layout">
+        <aside class="admin__list">
+          <div class="admin__list-header">
+            <h2>Projects</h2>
+            <button class="admin__button admin__button--small" data-admin-add>Add project</button>
+          </div>
+          <div class="admin__list-body" data-admin-projects>
+            <p class="admin__empty">Fetching projects…</p>
+          </div>
+        </aside>
+
+        <section class="admin__editor" data-admin-editor hidden>
+          <header class="admin__editor-header">
+            <h2 data-admin-editor-title>New project</h2>
+            <button class="admin__button admin__button--ghost" data-admin-cancel type="button">Cancel</button>
+          </header>
+          <form class="admin__form" id="admin-project-form">
+            <input type="hidden" name="id">
+            <label class="admin__field">
+              <span>Project title</span>
+              <input type="text" name="title" placeholder="New product launch" required>
+            </label>
+            <label class="admin__field">
+              <span>Summary</span>
+              <textarea name="summary" rows="3" placeholder="Short punchy description"></textarea>
+            </label>
+            <label class="admin__field">
+              <span>Tech stack</span>
+              <input type="text" name="tech_stack" placeholder="TypeScript · Next.js · Vercel">
+            </label>
+            <label class="admin__field">
+              <span>Launched on</span>
+              <input type="text" name="launched_on" placeholder="May 2025">
+            </label>
+            <label class="admin__field">
+              <span>CTA / Live URL</span>
+              <input type="url" name="cta_url" placeholder="https://example.com">
+            </label>
+            <label class="admin__checkbox">
+              <input type="checkbox" name="is_featured">
+              <span>Feature on home page</span>
+            </label>
+
+            <fieldset class="admin__fieldset">
+              <legend>Thumbnail</legend>
+              <div class="admin__thumbnail" data-admin-thumbnail-preview>None selected</div>
+              <label class="admin__upload">
+                <span>Select thumbnail</span>
+                <input type="file" name="thumbnail" accept="image/*">
+              </label>
+            </fieldset>
+
+            <fieldset class="admin__fieldset">
+              <legend>Gallery (up to 10 images)</legend>
+              <div class="admin__gallery" data-admin-gallery></div>
+              <label class="admin__upload">
+                <span>Add gallery images</span>
+                <input type="file" name="gallery" accept="image/*" multiple>
+              </label>
+            </fieldset>
+
+            <footer class="admin__editor-footer">
+              <button class="admin__button" type="submit">Save project</button>
+              <button class="admin__button admin__button--danger" type="button" data-admin-delete hidden>Delete project</button>
+              <p class="admin__error" data-admin-editor-error hidden></p>
+              <p class="admin__success" data-admin-editor-success hidden></p>
+            </footer>
+          </form>
+        </section>
+      </div>
+    </section>
+  </main>
+  <script src="scripts/env.js"></script>
+  <script type="module" src="scripts/admin.js"></script>
+</body>
+</html>

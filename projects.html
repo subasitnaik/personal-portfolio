@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Projects · Subasit</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page">
+  <header class="nav" aria-label="Primary">
+    <nav class="nav__glass">
+      <a class="nav__brand" href="index.html#home">SUBASIT.COM</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+        <span class="nav__toggle-line"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <div class="nav__links" id="primary-navigation">
+        <a class="nav__link" href="index.html#home">Home</a>
+        <a class="nav__link" href="index.html#skills">Skills</a>
+        <a class="nav__link" href="projects.html">Projects</a>
+        <a class="nav__link" href="index.html#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="projects-page">
+    <section class="projects projects--all">
+      <div class="projects__header">
+        <div>
+          <h1>All Projects</h1>
+          <p>Browse every engagement — from featured builds to in-progress experiments.</p>
+        </div>
+      </div>
+      <div class="projects__grid" data-projects-all>
+        <div class="projects__empty">Loading projects…</div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>© Subasit 2025. Crafted with care.</span>
+    <div class="footer__socials" aria-label="Social links">
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Behance</a>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const nav = document.querySelector(".nav");
+      if (!nav) return;
+
+      let lastScrollY = window.pageYOffset;
+      let ticking = false;
+
+      const update = () => {
+        const currentY = window.pageYOffset;
+        const delta = currentY - lastScrollY;
+
+        if (nav.dataset.suppressReveal === "true") {
+          lastScrollY = currentY;
+          ticking = false;
+          return;
+        }
+
+        if (nav.classList.contains("nav--menu-open")) {
+          lastScrollY = currentY;
+          ticking = false;
+          return;
+        }
+
+        if (currentY <= 80) {
+          nav.classList.remove("nav--hidden");
+        } else if (delta > 8) {
+          nav.classList.add("nav--hidden");
+        } else if (delta < -8) {
+          nav.classList.remove("nav--hidden");
+        }
+
+        lastScrollY = currentY;
+        ticking = false;
+      };
+
+      window.addEventListener("scroll", () => {
+        if (!ticking) {
+          window.requestAnimationFrame(update);
+          ticking = true;
+        }
+      });
+
+      const navGlass = document.querySelector(".nav__glass");
+      if (!navGlass) return;
+
+      const toggleButton = navGlass.querySelector(".nav__toggle");
+      const navLinksContainer = navGlass.querySelector(".nav__links");
+      const navLinks = navLinksContainer ? Array.from(navLinksContainer.querySelectorAll("a")) : [];
+
+      const closeMenu = () => {
+        nav.classList.remove("nav--menu-open");
+        toggleButton?.setAttribute("aria-expanded", "false");
+        navGlass.style.setProperty("--halo-opacity", "0");
+      };
+
+      const openMenu = () => {
+        nav.classList.add("nav--menu-open");
+        toggleButton?.setAttribute("aria-expanded", "true");
+        navGlass.style.setProperty("--halo-opacity", "0");
+      };
+
+      toggleButton?.addEventListener("click", () => {
+        if (nav.classList.contains("nav--menu-open")) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          if (window.innerWidth <= 1024) {
+            closeMenu();
+          }
+
+          const isHero = link.getAttribute("href")?.includes("#home");
+
+          if (isHero) {
+            nav.classList.remove("nav--hidden");
+            delete nav.dataset.suppressReveal;
+            lastScrollY = window.pageYOffset;
+            return;
+          }
+
+          nav.classList.add("nav--hidden");
+          nav.dataset.suppressReveal = "true";
+
+          window.setTimeout(() => {
+            delete nav.dataset.suppressReveal;
+          }, 700);
+        });
+      });
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth > 1024) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener("pointerdown", (event) => {
+        if (window.innerWidth > 1024) return;
+        if (!nav.contains(event.target)) {
+          closeMenu();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+          closeMenu();
+        }
+      });
+
+      let haloX = 50;
+      let haloY = 50;
+      let targetX = 50;
+      let targetY = 50;
+      let animationFrameId = null;
+      const smoothing = 0.8;
+
+      const animateHalo = () => {
+        haloX += (targetX - haloX) * smoothing;
+        haloY += (targetY - haloY) * smoothing;
+
+        navGlass.style.setProperty("--halo-x", `${haloX}%`);
+        navGlass.style.setProperty("--halo-y", `${haloY}%`);
+
+        if (Math.abs(targetX - haloX) > 0.05 || Math.abs(targetY - haloY) > 0.05) {
+          animationFrameId = requestAnimationFrame(animateHalo);
+        } else {
+          haloX = targetX;
+          haloY = targetY;
+          navGlass.style.setProperty("--halo-x", `${haloX}%`);
+          navGlass.style.setProperty("--halo-y", `${haloY}%`);
+          animationFrameId = null;
+        }
+      };
+
+      const ensureAnimation = () => {
+        if (animationFrameId === null) {
+          animationFrameId = requestAnimationFrame(animateHalo);
+        }
+      };
+
+      const updateTarget = (event) => {
+        if (window.innerWidth <= 1024 || nav.classList.contains("nav--menu-open")) return;
+        const rect = navGlass.getBoundingClientRect();
+        const point = event.touches?.length ? event.touches[0] : event;
+        const x = ((point.clientX - rect.left) / rect.width) * 100;
+        targetX = Math.max(0, Math.min(100, x));
+        targetY = 50;
+        ensureAnimation();
+      };
+
+      const showHalo = (event) => {
+        if (window.innerWidth <= 1024 || nav.classList.contains("nav--menu-open")) return;
+        navGlass.style.setProperty("--halo-opacity", "1");
+        updateTarget(event);
+      };
+
+      const hideHalo = () => {
+        navGlass.style.setProperty("--halo-opacity", "0");
+        targetX = 50;
+        targetY = 50;
+        ensureAnimation();
+      };
+
+      navGlass.addEventListener("pointerenter", showHalo);
+      navGlass.addEventListener("pointermove", updateTarget);
+      navGlass.addEventListener("pointerleave", hideHalo);
+
+      navGlass.addEventListener("touchstart", showHalo, { passive: true });
+      navGlass.addEventListener("touchmove", updateTarget, { passive: true });
+      navGlass.addEventListener("touchend", hideHalo);
+      navGlass.addEventListener("touchcancel", hideHalo);
+    })();
+
+    window.initializeProjectGalleries = () => {
+      window.__projectGalleryCleanup?.();
+
+      const thumbs = Array.from(document.querySelectorAll(".project-card__thumb"));
+      if (!thumbs.length) return;
+
+      const galleries = thumbs
+        .map((thumb) => {
+          const slides = Array.from(thumb.querySelectorAll("img"));
+          if (slides.length === 0) return null;
+          slides.forEach((img, index) => {
+            img.classList.toggle("is-active", index === 0);
+          });
+          return {
+            thumb,
+            slides,
+            index: 0,
+            interval: parseInt(thumb.dataset.galleryInterval || "4500", 10),
+            timer: null,
+            playing: false,
+          };
+        })
+        .filter(Boolean);
+
+      const showNext = (gallery) => {
+        gallery.slides[gallery.index].classList.remove("is-active");
+        gallery.index = (gallery.index + 1) % gallery.slides.length;
+        gallery.slides[gallery.index].classList.add("is-active");
+      };
+
+      const start = (gallery) => {
+        if (gallery.playing || gallery.slides.length < 2) return;
+        gallery.playing = true;
+        gallery.timer = window.setInterval(() => showNext(gallery), gallery.interval);
+      };
+
+      const stop = (gallery) => {
+        if (gallery.timer) {
+          window.clearInterval(gallery.timer);
+          gallery.timer = null;
+        }
+        gallery.playing = false;
+      };
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const gallery = galleries.find((g) => g.thumb === entry.target);
+            if (!gallery) return;
+            if (entry.isIntersecting) {
+              start(gallery);
+            } else {
+              stop(gallery);
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+
+      galleries.forEach((gallery) => observer.observe(gallery.thumb));
+
+      const cleanup = () => {
+        galleries.forEach((gallery) => {
+          if (gallery.playing) {
+            window.clearInterval(gallery.timer);
+            gallery.timer = null;
+          }
+        });
+        observer.disconnect();
+      };
+
+      window.__projectGalleryCleanup = cleanup;
+
+      window.addEventListener("beforeunload", cleanup, { once: true });
+    };
+
+    window.initializeProjectGalleries();
+    window.addEventListener("projects:rendered", () => window.initializeProjectGalleries());
+  </script>
+  <script src="scripts/env.js"></script>
+  <script type="module" src="scripts/loadProjects.js"></script>
+</body>
+</html>
